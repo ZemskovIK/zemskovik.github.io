@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend Journey</title>
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Cinzel+Decorative:700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <!-- Прелоадер -->
+    <div id="loading-screen">
+      <div class="spinner">
+        <div class="spinner-circle"></div>
+        <span class="spinner-text">Backend Journey</span>
+      </div>
+    </div>
+    <!-- Шапка сайта -->
+    <header>
+      <div class="logo-container">
+        <img src="images/profile.jpg" alt="Логотип" class="logo">
+        <span class="logo-text">ZemskovIK</span>
+      </div>
+      <nav class="menu" id="mobileMenu">
+        <ul>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#stack">Технологии</a></li>
+          <li><a href="#posts">Блог</a></li>
+          <li><a href="#projects">Мои проекты</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <button class="menu-icon" aria-label="Menu" id="menu-toggle">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <g data-name="Layer 2">
+              <path d="M28 10H4a1 1 0 0 1 0-2h24a1 1 0 0 1 0 2ZM28 17H4a1 1 0 0 1 0-2h24a1 1 0 0 1 0 2ZM28 24H4a1 1 0 0 1 0-2h24a1 1 0 0 1 0 2Z" fill="#4a90e2" class="fill-000000"></path>
+            </g>
+            <path d="M0 0h32v32H0z" fill="none"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Раздел "Обо мне" -->
+      <section id="about" class="scroll-animate about-section">
+        <div class="about-content">
+          <h2>Backend Journey</h2>
+          <p id="text">
+            Привет! Меня зовут Игорь, мне 19 лет, и я начинающий Python-разработчик.
+            Работаю в области бэкенда, имею опыт работы с HTML/CSS, PostgreSQL и Linux.
+            Увлечен созданием веб-приложений и изучением технологий.
+          </p>
+        </div>
+        <div class="about-animation">
+          <img src="images/animation.gif" alt="Анимация обо мне" />
+        </div>
+      </section>
+
+      <!-- Раздел "Технологии" -->
+      <section id="stack" class="scroll-animate">
+        <h2>Мой стек технологий</h2>
+        <div class="tech-stack">
+          <div class="tech-item" data-description="Язык программирования для backend-разработки">
+            <img src="images/python.svg" alt="Python" />
+            <p>Python</p>
+          </div>
+          <div class="tech-item" data-description="СУБД для работы с базами данных">
+            <img src="images/postgresql.svg" alt="PostgreSQL" />
+            <p>PostgreSQL</p>
+          </div>
+          <div class="tech-item" data-description="Система управления серверами и Linux-средами">
+            <img src="images/linux.svg" alt="Linux" />
+            <p>Linux</p>
+          </div>
+          <div class="tech-item" data-description="Язык гипертекстовой разметки">
+            <img src="images/html.svg" alt="HTML" />
+            <p>HTML</p>
+          </div>
+          <div class="tech-item" data-description="Технология для стилизации веб-страниц">
+            <img src="images/css.svg" alt="CSS" />
+            <p>CSS</p>
+          </div>
+          <div class="tech-item" data-description="Язык программирования для добавления интерактивности">
+            <img src="images/javascript.svg" alt="JavaScript" />
+            <p>JavaScript</p>
+          </div>
+        </div>
+        <div id="tech-description" class="description-box"></div>
+      </section>
+
+      <!-- Раздел "Блог" -->
+      <section id="posts" class="scroll-animate">
+        <h2>Блог</h2>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Поиск по статьям..."
+        />
+        <select id="category-filter">
+          <option value="">Все категории</option>
+          <option value="Networking">Networking</option>
+          <option value="Linux">Linux</option>
+        </select>
+        <p id="article-count"></p>
+        <!-- Тут будет показываться количество статей -->
+        <div id="articles">
+          <article data-category="Linux" class="scroll-animate">
+            <h3 class="article-title">Что такое SSH?</h3>
+            <p>
+              SSH (Secure Shell) — протокол, позволяющий безопасно подключаться
+              к удалённым серверам...
+            </p>
+            <a href="articles/ssh.html" class="read-more">Читать далее...</a>
+          </article>
+          <article data-category="Networking" class="scroll-animate">
+            <h3 class="article-title">Что такое Firewall?</h3>
+            <p>
+              Файрвол (брандмауэр) — это система защиты, которая проверяет
+              входящий и исходящий...
+            </p>
+            <a href="articles/firewall.html" class="read-more">Читать далее...</a>
+          </article>
+          <article data-category="Networking" class="scroll-animate">
+            <h3 class="article-title">Как работает CDN?</h3>
+            <p>
+              CDN (Content Delivery Network) ускоряет загрузку сайтов,
+              распределяя копии контента...
+            </p>
+            <a href="articles/cdn.html" class="read-more">Читать далее...</a>
+          </article>
+          <article data-category="Networking" class="scroll-animate">
+            <h3 class="article-title">Что такое VPN?</h3>
+            <p>
+              VPN (Virtual Private Network) — это технология, которая позволяет
+              создать защищённое соединение...
+            </p>
+            <a href="articles/vpn.html" class="read-more">Читать далее...</a>
+          </article>
+          <article data-category="Networking" class="scroll-animate">
+            <h3 class="article-title">Как работает DNS?</h3>
+            <p>
+              DNS (Domain Name System) — это система, которая преобразует
+              доменные имена...
+            </p>
+            <a href="articles/dns.html" class="read-more">Читать далее...</a>
+          </article>
+          <article data-category="Networking" class="scroll-animate">
+            <h3 class="article-title">Как работает Интернет?</h3>
+            <p>
+              Интернет связывает миллиарды устройств, позволяя им обмениваться
+              данными через сеть...
+            </p>
+            <a href="articles/internet.html" class="read-more">Читать далее...</a>
+          </article>
+          <article data-category="Linux" class="scroll-animate">
+            <h3 class="article-title">Структура файловой системы</h3>
+            <p>
+              <strong>/</strong> — root каталог. Содержит в себе всю иерархию системы...
+            </p>
+            <a href="articles/linux1.html" class="read-more">Читать далее...</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Раздел "Мои проекты" -->
+      <section id="projects" class="scroll-animate">
+        <h2>Мои проекты</h2>
+        <p>
+          В этом разделе я рассказываю о своих текущих и будущих проектах. Скоро
+          будет больше информации!
+        </p>
+      </section>
+
+      <!-- Раздел "Контакты" -->
+      <section id="contact" class="scroll-animate">
+        <h2>Контакты</h2>
+        <div id="contact-widgets">
+          <a href="mailto:igor@zemskoff.su" target="_blank" class="widget">
+            <img src="images/email-icon.svg" alt="Email">
+          </a>
+          <a href="https://t.me/garik_pro" target="_blank" class="widget">
+            <img src="images/telegram-icon.svg" alt="Telegram">
+          </a>
+          <a href="https://github.com/ZemskovIK" target="_blank" class="widget">
+            <img src="images/github-icon.svg" alt="GitHub">
+          </a>
+          <a href="https://vk.com/garik_sharik" target="_blank" class="widget">
+            <img src="images/vk-icon.svg" alt="VK">
+          </a>
+        </div>        
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 Igor Zemskov | Все права защищены</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
