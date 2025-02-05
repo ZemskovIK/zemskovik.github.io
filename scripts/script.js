@@ -1,19 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+  themeSwitcher();
+  articles();
+  scrollAnimation();
+  headerScroll();
+  techDescriptions();
+  loadingScreen();
+  mobileMenu();
+  codeTyping();
+});
 
+function articles() {
   const articles = document.querySelectorAll('#articles article');
   const articleCountText = document.querySelector('#article-count');
   const categoryFilter = document.querySelector('#category-filter');
   const searchInput = document.querySelector('#search-input');
-  const scrollElements = document.querySelectorAll('.scroll-animate');
-  const techItems = document.querySelectorAll('.tech-item');
-  const descriptionBox = document.getElementById('tech-description');
-  const header = document.querySelector('header');
 
   function showLastThreeArticles() {
     articles.forEach((article, index) => {
       article.style.display = index < 3 ? 'block' : 'none';
     });
-    updateArticleCount(true); 
+    updateArticleCount(true);
   }
 
   function updateArticleCount(showTotal = false) {
@@ -29,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   categoryFilter.addEventListener('change', function () {
     const selectedCategory = categoryFilter.value.toLowerCase();
-
+    
     if (selectedCategory === '') {
       showLastThreeArticles();
     } else {
@@ -51,15 +57,18 @@ document.addEventListener('DOMContentLoaded', function () {
         .textContent.toLowerCase();
       const content = article.querySelector('p').textContent.toLowerCase();
 
-      article.style.display = title.includes(query) || content.includes(query)
-        ? 'block'
-        : 'none';
+      article.style.display =
+        title.includes(query) || content.includes(query) ? 'block' : 'none';
     });
 
     updateArticleCount();
   });
 
   showLastThreeArticles();
+}
+
+function scrollAnimation() {
+  const scrollElements = document.querySelectorAll('.scroll-animate');
 
   setTimeout(() => {
     const observer = new IntersectionObserver(
@@ -75,6 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     scrollElements.forEach((el) => observer.observe(el));
   }, 1500);
+}
+
+function headerScroll() {
+  const header = document.querySelector('header');
 
   window.addEventListener('scroll', function () {
     if (window.scrollY > 10) {
@@ -83,6 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
       header.classList.remove('scrolled');
     }
   });
+}
+
+function techDescriptions() {
+  const techItems = document.querySelectorAll('.tech-item');
+  const descriptionBox = document.getElementById('tech-description');
 
   techItems.forEach((item) => {
     item.addEventListener('mouseenter', () => {
@@ -94,30 +112,29 @@ document.addEventListener('DOMContentLoaded', function () {
       descriptionBox.style.opacity = '0';
     });
   });
+}
 
-});
+function loadingScreen() {
+  const loadingScreen = document.getElementById('loading-screen');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const loadingScreen = document.getElementById("loading-screen");
-
-  document.documentElement.classList.add("loading");
-  document.body.classList.add("loading");
+  document.documentElement.classList.add('loading');
+  document.body.classList.add('loading');
 
   setTimeout(() => {
-    loadingScreen.classList.add("hidden");
-    document.documentElement.classList.remove("loading");
-    document.body.classList.remove("loading");
+    loadingScreen.classList.add('hidden');
+    document.documentElement.classList.remove('loading');
+    document.body.classList.remove('loading');
   }, 1500);
-});
+}
 
-document.addEventListener("DOMContentLoaded", () => {
+function mobileMenu() {
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobileMenu');
   const body = document.body;
 
   function toggleMenu() {
     menu.classList.toggle('active');
-    body.classList.toggle('no-scroll'); 
+    body.classList.toggle('no-scroll');
   }
 
   if (menuToggle) {
@@ -125,10 +142,97 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const menuLinks = menu.querySelectorAll('a');
-  menuLinks.forEach(link => {
+  menuLinks.forEach((link) => {
     link.addEventListener('click', () => {
       menu.classList.remove('active');
       body.classList.remove('no-scroll');
     });
   });
-});
+}
+
+function themeSwitcher() {
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  function toggleTheme() {
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  setTheme(savedTheme);
+
+  document
+    .getElementById('theme-switcher')
+    .addEventListener('click', toggleTheme);
+}
+
+function codeTyping() {
+  const codeText = document.getElementById('code');
+  const cursor = document.getElementById('cursor');
+  const lineHeight = 16;
+  const charWidth = 8;
+  const startX = 90;
+  const startY = 185;
+  const tabSize = 4;
+  const codeSamples = [
+    "def fetch_data():\n return 'Hello, Backend'",
+    "const server = require('express')();\nserver.listen(3000);",
+    "function queryDB() {\n return 'Data Loaded';\n}",
+  ];
+  let index = 0;
+  let textIndex = 0;
+  let tspans = [];
+  let currentTspan;
+  let currentIndent = 0;
+
+  function createTspan(yOffset, indent = 0) {
+    let tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+    tspan.setAttribute('x', startX + indent * charWidth);
+    tspan.setAttribute('y', startY + yOffset);
+    tspan.textContent = '';
+    codeText.appendChild(tspan);
+    tspans.push(tspan);
+    return tspan;
+  }
+
+  currentTspan = createTspan(0);
+
+  function typeCode() {
+    if (textIndex < codeSamples[index].length) {
+      let char = codeSamples[index][textIndex];
+
+      if (char === '\t') {
+        char = ' '.repeat(tabSize);
+      }
+
+      if (char === '\n') {
+        currentTspan = createTspan(tspans.length * lineHeight, currentIndent);
+      } else {
+        currentTspan.textContent += char;
+      }
+
+      cursor.setAttribute('x', startX + currentTspan.getComputedTextLength());
+      cursor.setAttribute('y', startY + (tspans.length - 1) * lineHeight);
+
+      textIndex++;
+      setTimeout(typeCode, 100);
+    } else {
+      setTimeout(() => {
+        textIndex = 0;
+        codeText.innerHTML = '';
+        tspans = [];
+        currentTspan = createTspan(0);
+        index = (index + 1) % codeSamples.length;
+        cursor.setAttribute('x', startX);
+        cursor.setAttribute('y', startY);
+        setTimeout(typeCode, 500);
+      }, 2000);
+    }
+  }
+
+  typeCode();
+}
