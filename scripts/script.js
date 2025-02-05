@@ -175,7 +175,7 @@ function codeTyping() {
   const cursor = document.getElementById('cursor');
   const lineHeight = 24;
   const charWidth = 8;
-  const startX = 80;
+  const startX = 70;
   const startY = 185;
   const tabSize = 4;
   const codeSamples = [
