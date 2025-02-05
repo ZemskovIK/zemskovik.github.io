@@ -642,6 +642,10 @@ footer {
   .link {
     font-size: 0.8rem;
   }
+
+  .prev, .next {
+    color: #2a2a2a;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
