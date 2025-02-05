@@ -173,9 +173,9 @@ function themeSwitcher() {
 function codeTyping() {
   const codeText = document.getElementById('code');
   const cursor = document.getElementById('cursor');
-  const lineHeight = 16;
+  const lineHeight = 24;
   const charWidth = 8;
-  const startX = 90;
+  const startX = 80;
   const startY = 185;
   const tabSize = 4;
   const codeSamples = [

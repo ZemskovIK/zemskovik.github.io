@@ -53,7 +53,7 @@ header {
 
 .theme-toggle {
   position: absolute;
-  right: 50px;
+  right: 60px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -167,7 +167,7 @@ header.scrolled {
 .menu-toggle {
   position: absolute;
   top: 50%;
-  right: 0; 
+  right: 5px; 
   transform: translateY(-50%);
   z-index: 1001; 
 }
@@ -634,10 +634,10 @@ footer {
   .code-line {
     font-size: 17px;
   }
-/* 
-  .theme-toggle {
-    right: 50px;
-  } */
+
+  #theme-switcher {
+    border-radius: 40%;
+  }
 
   .link {
     font-size: 0.8rem;
