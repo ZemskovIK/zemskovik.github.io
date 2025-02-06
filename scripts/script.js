@@ -150,6 +150,14 @@ function mobileMenu() {
   });
 }
 
+function getSystemTheme() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  } else {
+    return 'light';
+  }
+}
+
 function themeSwitcher() {
   function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -157,7 +165,7 @@ function themeSwitcher() {
   }
 
   function toggleTheme() {
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const currentTheme = localStorage.getItem('theme') || getSystemTheme();
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   }
