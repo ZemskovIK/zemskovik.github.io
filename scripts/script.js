@@ -150,14 +150,6 @@ function mobileMenu() {
   });
 }
 
-function getSystemTheme() {
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
-  } else {
-    return 'light';
-  }
-}
-
 function themeSwitcher() {
   function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -165,12 +157,16 @@ function themeSwitcher() {
   }
 
   function toggleTheme() {
-    const currentTheme = localStorage.getItem('theme') || getSystemTheme();
+    const currentTheme = localStorage.getItem('theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   }
 
-  const savedTheme = localStorage.getItem('theme') || 'light';
+  function getPreferredTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  const savedTheme = localStorage.getItem('theme') || getPreferredTheme();
   setTheme(savedTheme);
 
   document
