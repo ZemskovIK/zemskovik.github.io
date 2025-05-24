@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .error-message {
+            position: relative;
+            z-index: 1;
+            color: #0F0;
+            font-family: monospace;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #0F0;
+            max-width: 80%;
+        }
+        
+        .error-message h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .error-message p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .error-message a {
+            color: #0F0;
+            text-decoration: underline;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .cursor:after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    
+    <div class="error-message">
+        <h1>404<span class="cursor"></span></h1>
+        <p>Страница не найдена.</p>
+        <p><a href="/">Вернуться на главную</a></p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("matrix-canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const fontSize = 12;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = "#0F0";
+            ctx.font = `${fontSize}px monospace`;
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 35);
+    </script>
+</body>
+</html>
