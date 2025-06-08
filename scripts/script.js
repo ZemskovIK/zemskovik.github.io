@@ -162,13 +162,6 @@ function themeSwitcher() {
     setTheme(newTheme);
   }
 
-  function getPreferredTheme() {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  const savedTheme = localStorage.getItem('theme') || getPreferredTheme();
-  setTheme(savedTheme);
-
   document
     .getElementById('theme-switcher')
     .addEventListener('click', toggleTheme);
