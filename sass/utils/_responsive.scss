@@ -229,6 +229,23 @@
     left: 0 !important;
     right: auto !important;
   }
+
+  .error-digit {
+    font-size: 5rem;
+  }
+
+  .error-title {
+    font-size: 2rem;
+  }
+
+  .error-description {
+    font-size: 1rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 // Маленькие мобильные устройства
@@ -281,5 +298,14 @@
 
   .stat {
     text-align: center;
+  }
+
+  .error-digit {
+    font-size: 4rem;
+    gap: 10px;
+  }
+
+  .error-title {
+    font-size: 1.7rem;
   }
 }
