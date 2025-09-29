@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Igor Zemskov. Backend Developer</title>
+    <meta
+      name="description"
+      content="Портфолио backend-разработчика. Python, FastAPI, React, JavaScript. Pet-проекты и учебные работы."
+    />
+    <meta name="author" content="Igor Zemskov" />
+    <meta property="og:title" content="Igor Zemskov. Backend Developer" />
+    <meta property="og:description" content="Портфолио backend-разработчика" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://zemskovik.github.io" />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap"
+      rel="stylesheet"
+    />
+    <link href="images/avatar.jpg" as="image" />
+  </head>
+  <body>
+    <div id="threejs-container"></div>
+
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="github-icon-container">
+            <a
+              href="https://github.com/zemskovik"
+              target="_blank"
+              class="github-icon"
+              aria-label="Мой GitHub"
+            >
+              <svg
+                class="github-svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  class="github-body"
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                />
+                <path class="github-arm" d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="nav-menu" id="nav-menu">
+            <ul>
+              <li><a href="#about">Обо мне</a></li>
+              <li><a href="#skills">Навыки</a></li>
+              <li><a href="#timeline">Опыт</a></li>
+              <li><a href="#projects">Проекты</a></li>
+              <li><a href="#contact">Контакты</a></li>
+            </ul>
+          </div>
+
+          <div
+            class="burger-menu"
+            id="burger-menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="content">
+      <section class="hero">
+        <h1 class="hero-title glitch" data-text="Backend Developer">
+          Backend Developer
+        </h1>
+        <p class="hero-subtitle">Создаю современные веб-приложения</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">Мои проекты</a>
+          <a href="#contact" class="btn btn-secondary">Связаться</a>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2 class="section-title">Обо мне</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3 class="about-name">
+              Привет, я <span class="name-highlight">Igor Zemskov</span>
+            </h3>
+            <p>
+              Разработчик, создающий веб-приложения. Изучаю полный цикл
+              разработки — от интерфейса до серверной логики.
+            </p>
+            <p>
+              Интересуюсь созданием надежных и масштабируемых систем,
+              кибербезопасностью и современными подходами к разработке.
+            </p>
+            <p>
+              Постоянно расширяю знания через пет-проекты и изучение новых
+              технологий. Открыт к интересным задачам и готов к сложным вызовам.
+            </p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">года в IT</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">часов кода</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">любви к разработке</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div
+              class="floating-avatar"
+              role="img"
+              aria-label="Фото разработчика"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <h2 class="section-title">Стек технологий</h2>
+        <div class="skills-grid" id="skills-container"></div>
+      </section>
+
+      <section id="timeline" class="section">
+        <h2 class="section-title">Путь в разработке</h2>
+        <div class="timeline" id="timeline-container"></div>
+      </section>
+
+      <section id="projects" class="section">
+        <h2 class="section-title">Проекты</h2>
+        <div class="projects-grid" id="projects-container"></div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2 class="section-title">Контакты</h2>
+        <ul class="example-2">
+          <li class="icon-content">
+            <a
+              href="https://t.me/zemskovik"
+              aria-label="Telegram"
+              data-social="telegram"
+              target="_blank"
+            >
+              <div class="filled"></div>
+              <svg
+                fill="currentColor"
+                width="800px"
+                height="800px"
+                viewBox="0 0 24 24"
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Telegram</title>
+                <path
+                  d="M11.99432,2a10,10,0,1,0,10,10A9.99917,9.99917,0,0,0,11.99432,2Zm3.17951,15.15247a.70547.70547,0,0,1-1.002.3515l-2.71467-2.10938L9.71484,17.002a.29969.29969,0,0,1-.285.03894l.334-2.98846.01069.00848.00683-.059s4.885-4.44751,5.084-4.637c.20147-.189.135-.23.135-.23.01147-.23053-.36152,0-.36152,0L8.16632,13.299l-2.69549-.918s-.414-.1485-.453-.475c-.041-.324.46649-.5.46649-.5l10.717-4.25751s.881-.39252.881.25751Z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li class="icon-content">
+            <a
+              href="https://vk.com/zemskovik"
+              aria-label="VK"
+              data-social="vk"
+              target="_blank"
+            >
+              <div class="filled"></div>
+              <svg
+                fill="currentColor"
+                width="800px"
+                height="800px"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Layer 1"
+              >
+                <title>VK</title>
+                <path
+                  d="M15.07294,2H8.9375C3.33331,2,2,3.33331,2,8.92706V15.0625C2,20.66663,3.32294,22,8.92706,22H15.0625C20.66669,22,22,20.67706,22,15.07288V8.9375C22,3.33331,20.67706,2,15.07294,2Zm3.07287,14.27081H16.6875c-.55206,0-.71875-.44793-1.70831-1.4375-.86463-.83331-1.22919-.9375-1.44794-.9375-.30206,0-.38544.08332-.38544.5v1.3125c0,.35419-.11456.5625-1.04162.5625a5.69214,5.69214,0,0,1-4.44794-2.66668A11.62611,11.62611,0,0,1,5.35419,8.77081c0-.21875.08331-.41668.5-.41668H7.3125c.375,0,.51044.16668.65625.55212.70831,2.08331,1.91669,3.89581,2.40625,3.89581.1875,0,.27081-.08331.27081-.55206V10.10413c-.0625-.97913-.58331-1.0625-.58331-1.41663a.36008.36008,0,0,1,.375-.33337h2.29169c.3125,0,.41662.15625.41662.53125v2.89587c0,.3125.13544.41663.22919.41663.1875,0,.33331-.10413.67706-.44788a11.99877,11.99877,0,0,0,1.79169-2.97919.62818.62818,0,0,1,.63544-.41668H17.9375c.4375,0,.53125.21875.4375.53125A18.20507,18.20507,0,0,1,16.41669,12.25c-.15625.23956-.21875.36456,0,.64581.14581.21875.65625.64582,1,1.05207a6.48553,6.48553,0,0,1,1.22912,1.70837C18.77081,16.0625,18.5625,16.27081,18.14581,16.27081Z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li class="icon-content">
+            <a
+              href="mailto:zemskovik@bk.ru"
+              aria-label="Email"
+              data-social="email"
+            >
+              <div class="filled"></div>
+              <svg
+                width="800px"
+                height="800px"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                id="mail"
+                class="icon glyph"
+              >
+                <title>Email</title>
+                <path
+                  d="M22,8.32V18a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V8.69L4,9.78l7.52,4.1A1,1,0,0,0,12,14a1,1,0,0,0,.5-.14L20,9.49Z"
+                  style="fill: currentColor"
+                ></path>
+                <path
+                  d="M22,6h0L20,7.18l-8,4.67L4,7.5,2,6.4V6A2,2,0,0,1,4,4H20A2,2,0,0,1,22,6Z"
+                  style="fill: currentColor"
+                ></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; Igor Zemskov, 2025</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+    <script src="js/threejs-config.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/timeline.js" defer></script>
+    <script src="projects/projects.js" defer></script>
+  </body>
+</html>

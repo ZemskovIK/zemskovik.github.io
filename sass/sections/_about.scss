@@ -1,0 +1,87 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Обо мне
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.about-name {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  color: $text-color;
+  font-weight: 300;
+}
+
+.name-highlight {
+  @include gradient(45deg);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.about-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $primary-color;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.floating-avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: url('../images/avatar.jpg') center/cover;
+  position: relative;
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,159 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Таймлайн
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $padding-large 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    height: 95%;
+    @include gradient(to bottom);
+    transform: translateX(-50%);
+    border-radius: 3px;
+  }
+}
+
+.timeline-item {
+  margin-bottom: 3rem;
+  position: relative;
+  width: 50%;
+  padding-right: 3rem;
+
+  &:nth-child(even) {
+    left: 50%;
+    padding-left: 3rem;
+    padding-right: 0;
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  right: -16px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  background: $bg-color;
+  border-radius: 50%;
+  border: 4px solid $primary-color;
+  box-shadow: 0 0 0 6px rgba(110, 72, 170, 0.2), 0 5px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  transition: all 0.3s;
+  @include flex-center;
+
+  &::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    @include gradient(45deg);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .timeline-item:hover & {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(110, 72, 170, 0.3), 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .timeline-item:nth-child(even) & {
+    left: -16px;
+    right: auto;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(110, 72, 170, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(110, 72, 170, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(110, 72, 170, 0);
+  }
+}
+
+.timeline-content {
+  background: $card-bg;
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    @include gradient(to bottom);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .timeline-item:nth-child(even) &::before {
+    left: auto;
+    right: 0;
+  }
+
+  &:hover {
+    @include hover-lift(-5px);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.timeline-year {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: $primary-color;
+  margin-bottom: 0.5rem;
+  font-family: 'Roboto Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-company {
+  color: $secondary-color;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-description {
+  color: $text-secondary;
+  line-height: 1.6;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}

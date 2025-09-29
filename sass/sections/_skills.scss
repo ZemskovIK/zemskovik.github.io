@@ -1,0 +1,93 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Навыки
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 30px;
+}
+
+.skill-card {
+  position: relative;
+  background: $card-bg;
+  border-radius: 10px;
+  padding: 25px 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, $accent-color, $primary-color) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include gradient(
+      135deg,
+      rgba(110, 72, 170, 0.1),
+      rgba(157, 80, 187, 0.05)
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+
+  &:hover {
+    box-shadow: 0 15px 30px rgba(110, 72, 170, 0.2);
+    border-color: rgba(110, 72, 170, 0.3);
+
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.skill-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 15px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+  transition: transform $transition-fast;
+
+  .skill-card:hover & {
+    transform: scale(1.1);
+  }
+}
+
+.skill-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+
+  .skill-card:hover & {
+    @include gradient(135deg, $text-color, $primary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

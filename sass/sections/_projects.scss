@@ -1,0 +1,125 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Проекты
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: linear-gradient(145deg, $card-bg, rgba(110, 72, 170, 0.1));
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(110, 72, 170, 0.2);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    @include gradient(90deg, $accent-color, $primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 40px rgba(110, 72, 170, 0.15);
+    border-color: rgba(110, 72, 170, 0.4);
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.project-image {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.6s;
+  }
+
+  .project-card:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  @include gradient(135deg, $text-color, $primary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.project-description {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: $text-secondary;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  background: rgba(110, 72, 170, 0.15);
+  color: $primary-color;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-family: $font-mono;
+  border: 1px solid rgba(110, 72, 170, 0.3);
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba(110, 72, 170, 0.25);
+    @include hover-lift(-2px);
+  }
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(110, 72, 170, 0.1);
+  color: $text-color;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: $accent-color;
+    color: white;
+    @include hover-lift(-2px);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3);
+  }
+}

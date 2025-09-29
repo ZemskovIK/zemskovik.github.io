@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "sass": "sass sass/main.scss css/style.css",
+    "sass:watch": "sass --watch sass/main.scss css/style.css",
+    "sass:build": "sass sass/main.scss css/style.css --style compressed"
+  }
+}

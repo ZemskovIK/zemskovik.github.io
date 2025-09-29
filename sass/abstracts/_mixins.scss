@@ -1,0 +1,64 @@
+// Миксин для градиентов
+@mixin gradient($direction: 45deg, $color1: #6e48aa, $color2: #9d50bb) {
+  background: linear-gradient($direction, $color1, $color2);
+}
+
+// Миксин для flexbox центрирования
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Миксин для backdrop-filter
+@mixin backdrop-blur($blur: 10px) {
+  backdrop-filter: blur($blur);
+}
+
+// Миксин для кнопок
+@mixin button-style($bg-color, $text-color: white, $hover-bg: null) {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+// Миксин для анимаций появления
+@mixin fade-in($duration: 0.6s) {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity $duration ease-out, transform $duration ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Миксин для hover эффектов
+@mixin hover-lift($lift: -8px) {
+  transform: translateY($lift);
+}
+
+// Миксин для медиа-запросов
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}

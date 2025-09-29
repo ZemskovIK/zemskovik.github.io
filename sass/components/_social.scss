@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Социальные иконки (From Uiverse.io by WAIOKYERE)
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  @include flex-center;
+
+  .icon-content {
+    margin: 0 $padding-small;
+    position: relative;
+
+    a {
+      position: relative;
+      overflow: hidden;
+      @include flex-center;
+      width: 50px;
+      height: 50px;
+      border-radius: 20%;
+      color: #4d4d4d;
+      background-color: #ffff;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 50%);
+        color: white;
+      }
+
+      svg {
+        position: relative;
+        z-index: 1;
+        width: 30px;
+        height: 30px;
+      }
+
+      .filled {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #000;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover .filled {
+        height: 100%;
+      }
+
+      &[data-social='telegram'] {
+        .filled,
+        ~ .tooltip {
+          background-color: #0088cc;
+        }
+      }
+
+      &[data-social='vk'] {
+        .filled,
+        ~ .tooltip {
+          background-color: #4c75a3;
+        }
+      }
+
+      &[data-social='email'] {
+        .filled,
+        ~ .tooltip {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}

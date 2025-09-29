@@ -1,0 +1,285 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Планшет
+@include tablet {
+  header {
+    @include backdrop-blur(35px);
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+      135deg,
+      rgba(18, 18, 18, 0.95),
+      rgba(30, 30, 30, 0.95)
+    );
+    @include backdrop-blur(15px);
+    transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 999;
+    @include flex-center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+          circle at 30% 20%,
+          rgba(110, 72, 170, 0.1),
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 70% 80%,
+          rgba(157, 80, 187, 0.1),
+          transparent 50%
+        );
+      pointer-events: none;
+    }
+
+    &.active {
+      left: 0;
+    }
+
+    ul {
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      gap: $padding-medium;
+      bottom: $padding-medium;
+      z-index: 1;
+
+      li {
+        width: 100%;
+        text-align: center;
+
+        a {
+          display: block;
+          padding: 15px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          font-size: 28px;
+          padding: $padding-medium $padding-large;
+          border-radius: 15px;
+          transition: all $transition-fast;
+          position: relative;
+          overflow: hidden;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.1),
+              transparent
+            );
+            transition: left 0.5s ease;
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            background: rgba(110, 72, 170, 0.2);
+            box-shadow: 0 10px 30px rgba(110, 72, 170, 0.3);
+
+            &::before {
+              left: 100%;
+            }
+          }
+        }
+
+        &:last-child a {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .burger-menu {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .nav-brand {
+    display: none;
+  }
+
+  .github-icon-container {
+    right: 60px;
+  }
+
+  .github-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .github-svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+// Мобильные устройства
+@include mobile {
+  .hero {
+    height: 90vh;
+
+    &-title {
+      font-size: 2.5rem;
+    }
+
+    &-subtitle {
+      font-size: 1.2rem;
+    }
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-stats {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .contact-content {
+    padding: 0 $padding-medium;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .social-links {
+    gap: $padding-medium;
+    margin-bottom: 30px;
+  }
+
+  .social-link {
+    min-width: 120px;
+    padding: 15px;
+  }
+
+  .link-icon {
+    font-size: 1.5rem;
+  }
+
+  .link-text {
+    font-size: 0.8rem;
+  }
+
+  .floating-dots {
+    gap: 15px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .timeline {
+    &::before {
+      left: 30px;
+    }
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: $padding-medium;
+
+    &:nth-child(even) {
+      left: 0;
+      padding-left: 70px;
+      padding-right: $padding-medium;
+    }
+  }
+
+  .timeline-marker {
+    left: 15px !important;
+    right: auto !important;
+  }
+
+  .timeline-content::before {
+    left: 0 !important;
+    right: auto !important;
+  }
+}
+
+// Маленькие мобильные устройства
+@include small-mobile {
+  .hero {
+    padding: 0 15px;
+
+    &-title {
+      font-size: 2rem;
+    }
+
+    &-subtitle {
+      font-size: 1.1rem;
+    }
+
+    &-cta {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $padding-medium;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 30px 0;
+
+    &-title {
+      font-size: 2rem;
+      margin-bottom: $padding-large;
+    }
+  }
+
+  .about-name {
+    font-size: 1.8rem;
+    margin-bottom: $padding-medium;
+  }
+
+  .about-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: $padding-medium;
+  }
+
+  .stat {
+    text-align: center;
+  }
+}

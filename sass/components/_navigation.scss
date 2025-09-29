@@ -1,0 +1,224 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba($bg-color, 0.9);
+  @include backdrop-blur(200px);
+}
+
+// Навигация
+.navbar {
+  padding: 20px 0;
+}
+
+.nav-container {
+  @include flex-center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.nav-menu {
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.4s;
+
+    &:hover {
+      background: rgba(157, 78, 221, 0.3);
+      box-shadow: 0 0 15px #4776e6;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+// Бургер меню
+.burger-menu {
+  display: none;
+  position: relative;
+  right: -40%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  @include backdrop-blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include gradient(45deg);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3);
+
+    &::before {
+      opacity: 0.1;
+    }
+  }
+
+  span {
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: $text-color;
+    border-radius: 1px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    left: 50%;
+    transform-origin: center;
+
+    &:nth-child(1) {
+      top: 12px;
+      transform: translateX(-50%);
+    }
+
+    &:nth-child(2) {
+      top: 19px;
+      transform: translateX(-50%);
+      width: 16px;
+    }
+
+    &:nth-child(3) {
+      top: 26px;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: translateX(-50%) rotate(45deg);
+        top: 19px;
+        width: 20px;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+      }
+
+      &:nth-child(3) {
+        transform: translateX(-50%) rotate(-45deg);
+        top: 19px;
+        width: 20px;
+      }
+    }
+  }
+}
+
+// GitHub иконка
+.github-icon-container {
+  position: absolute;
+  left: 40px;
+  top: 55%;
+  @include hover-lift(-50%);
+}
+
+.github-icon {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+  @include backdrop-blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+
+  &:hover {
+    background: rgba(157, 78, 221, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px $accent-color;
+  }
+}
+
+.github-svg {
+  transition: transform 0.3s;
+
+  .github-icon:hover & {
+    transform: scale(1.1);
+  }
+}
+
+.github-body {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.github-arm {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 9px 18px;
+  transition: transform 0.3s;
+
+  .github-icon:hover & {
+    animation: wave 0.8s ease-in-out;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
