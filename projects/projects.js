@@ -1,5 +1,4 @@
 function loadProjects() {
-  // Встраиваем данные прямо в код для избежания проблем с CORS при локальном запуске
   return {
     projects: [
       {
@@ -22,6 +21,19 @@ function loadProjects() {
           {
             name: 'GitHub',
             url: 'https://github.com/ZemskovIK/Spectre/tree/main/client/desktop',
+          },
+        ],
+      },
+      {
+        id: 3,
+        title: 'Сайт-визитка для медицинской IT-компании',
+        description: `Корпоративный сайт с современным минималистичным дизайном и адаптивной версткой.`,
+        technologies: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Vite'],
+        image: 'images/project3.png',
+        links: [
+          {
+            name: 'Demo',
+            url: 'https://infomed.tech',
           },
         ],
       },
@@ -75,7 +87,6 @@ function renderProjects(projects) {
   initScrollAnimations()
 }
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', function () {
   const data = loadProjects()
   renderProjects(data.projects)
