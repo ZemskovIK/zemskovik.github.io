@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 – Page Not Found</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .error-terminal {
+      position: relative;
+      z-index: 2;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .error-terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .error-terminal-body {
+      padding: 1.25rem 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.9;
+      text-align: left;
+    }
+
+    .error-heading {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .error-sub {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="grid-bg"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <span>//</span> zemskovik
+    </a>
+  </nav>
+
+  <div class="error-page">
+
+    <div class="error-terminal">
+      <div class="error-terminal-bar">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+        <span class="terminal-title">~ zemskovik — bash</span>
+      </div>
+      <div class="error-terminal-body">
+        <div><span class="t-prompt">❯</span> <span class="t-cmd">GET /this-page</span></div>
+        <div class="t-comment">&nbsp;</div>
+        <div><span class="t-out">{</span></div>
+        <div>&nbsp;&nbsp;<span class="t-key">"status"</span><span class="t-out">:</span> <span class="t-bool">404</span><span class="t-out">,</span></div>
+        <div>&nbsp;&nbsp;<span class="t-key">"error"</span><span class="t-out">:</span> <span class="t-str">"Not Found"</span><span class="t-out">,</span></div>
+        <div>&nbsp;&nbsp;<span class="t-key">"message"</span><span class="t-out">:</span> <span class="t-str">"Page does not exist"</span></div>
+        <div><span class="t-out">}</span></div>
+        <div class="t-comment">&nbsp;</div>
+        <div><span class="t-prompt">❯</span> <span class="t-cmd">_</span><span class="cursor" style="background:var(--green)"></span></div>
+      </div>
+    </div>
+
+    <h1 class="error-heading">Page not found</h1>
+    <p class="error-sub">Looks like this route doesn't exist.</p>
+
+    <div class="error-actions">
+      <a href="/" class="btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M19 12H5M5 12l7-7M5 12l7 7" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </div>
+
+</body>
+
+</html>
