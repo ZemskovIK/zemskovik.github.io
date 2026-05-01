@@ -77,7 +77,9 @@ const translations = {
     'experience-0-date': 'Февраль 2026 - н.в.',
     'experience-0-title': 'Младший специалист',
     'experience-0-org': 'НТЦ Вулкан',
-    'experience-0-desc': 'Участие в исследовательских и прикладных проектах. Работа с датасетами: сбор, разметка, аугментация, валидация.',
+    'experience-0-desc': `Участие в исследовательском проекте (Computer Vision): подготовка и валидация датасетов для обучения ML-моделей.
+    Инструменты: Python + OpenCV (cv2) для предобработки и проверки данных, CVAT - для аннотирования и контроля качества.
+    Написание вспомогательных Python-утилит для обработки экспортированных датасетов.`,
       },
   en: {
     // Hero
@@ -162,7 +164,9 @@ const translations = {
     'experience-0-date': 'February 2026 - present',
     'experience-0-title': 'Junior specialist',
     'experience-0-org': 'NTC Vulkan',
-    'experience-0-desc': 'Contributing to research and applied projects. Working with datasets: collection, annotation, augmentation, validation.',
+    'experience-0-desc': `Contributing to a Computer Vision research project: preparing and validating datasets for ML model training.
+    Tools: Python + OpenCV (cv2) for preprocessing, CVAT for annotation and quality control.
+    Developing auxiliary Python utilities for post-processing exported datasets.`,
   }
 };
 
