@@ -19,7 +19,6 @@ const translations = {
     'terminal-focus-val': '"масштабируемые системы и безопасность"',
     'terminal-location-key': '"location"',
     'terminal-location-val': '"Россия 🇷🇺"',
-    
     // About
     'section-about': '01. обо мне',
     'about-p1': 'Разработчик, создающий веб-приложения. Изучаю полный цикл разработки – от интерфейса до серверной логики.',
@@ -37,7 +36,7 @@ const translations = {
     'config-name': 'Игорь Земсков',
     'config-role': 'Backend-разработчик',
     'config-experience': '2+ года',
-    
+
     // Skills
     'section-skills': '02. навыки',
     'skill-backend': 'Backend',
@@ -46,14 +45,11 @@ const translations = {
     'skill-security': 'Безопасность',
     'skill-frontend': 'Frontend',
     'skill-data': 'Data Science',
-    
     // Projects
     'section-projects': '03. проекты',
     'filter-all': 'Все',
-    
     // experience
     'section-experience': '04. опыт',
-    
     // Contact
     'section-contact': '05. контакты',
     'contact-heading': 'Давайте создадим что-то вместе',
@@ -62,11 +58,9 @@ const translations = {
     'contact-github': 'GitHub',
     'contact-vk': 'ВКонтакте',
     'contact-email': 'Email',
-    
     // Footer
     'footer-text': 'Разработано и создано <span>Igor Zemskov</span> · ',
     'footer-coffee': 'Сделано с <span>❤</span> и большим количеством чая',
-    
     // Nav
     'nav-about': 'обо мне',
     'nav-skills': 'навыки',
@@ -77,10 +71,10 @@ const translations = {
     'experience-0-date': 'Февраль 2026 - н.в.',
     'experience-0-title': 'Младший специалист',
     'experience-0-org': 'НТЦ Вулкан',
-    'experience-0-desc': `Участие в исследовательском проекте (Computer Vision): подготовка и валидация датасетов для обучения ML-моделей.
-    Инструменты: Python + OpenCV (cv2) для предобработки и проверки данных, CVAT - для аннотирования и контроля качества.
-    Написание вспомогательных Python-утилит для обработки экспортированных датасетов.`,
-      },
+    'experience-0-desc': `Разработка бэкенд-части сервиса автоматизации коммуникаций (FastAPI, PostgreSQL, Redis, REST API).
+    Реализация системы аутентификации, разграничения прав доступа (RBAC), управления контекстом сессий и создание админ-панели.
+    Подготовка и валидация датасетов для ML-моделей. Разметка данных в CVAT и написание утилит обработки данных.`,
+  },
   en: {
     // Hero
     'hero-name-1': 'Igor',
@@ -105,7 +99,7 @@ const translations = {
     'terminal-role-val': '"Backend Developer"',
     'terminal-focus-val': '"scalable systems & security"',
     'terminal-location-val': '"Russia 🇷🇺"',
-    
+
     // About
     'section-about': '01. about',
     'about-p1': 'A developer building web applications. Learning the full development cycle – from interface to server logic.',
@@ -123,7 +117,7 @@ const translations = {
     "config-experience": '2+ years',
     'badge-work': 'open to work',
     'badge-lang': 'RU / EN',
-    
+
     // Skills
     'section-skills': '02. skills',
     'skill-backend': 'Backend',
@@ -132,14 +126,14 @@ const translations = {
     'skill-security': 'Security',
     'skill-frontend': 'Frontend',
     'skill-data': 'Data Science',
-    
+
     // Projects
     'section-projects': '03. projects',
     'filter-all': 'All',
-    
+
     // experience
     'section-experience': '04. experience',
-    
+
     // Contact
     'section-contact': '05. contact',
     'contact-heading': 'Let\'s build something together',
@@ -148,11 +142,11 @@ const translations = {
     'contact-github': 'GitHub',
     'contact-vk': 'VKontakte',
     'contact-email': 'Email',
-    
+
     // Footer
     'footer-text': 'Designed &amp; Built by <span>Igor Zemskov</span> · ',
     'footer-coffee': 'Made with <span>❤</span> and too much tea',
-    
+
     // Nav
     'nav-about': 'about',
     'nav-skills': 'skills',
@@ -164,9 +158,9 @@ const translations = {
     'experience-0-date': 'February 2026 - present',
     'experience-0-title': 'Junior specialist',
     'experience-0-org': 'NTC Vulkan',
-    'experience-0-desc': `Contributing to a Computer Vision research project: preparing and validating datasets for ML model training.
-    Tools: Python + OpenCV (cv2) for preprocessing, CVAT for annotation and quality control.
-    Developing auxiliary Python utilities for post-processing exported datasets.`,
+    'experience-0-desc': `Backend development for communication automation service (FastAPI, PostgreSQL, Redis, REST API).
+    Implementation of authentication, RBAC permission system, session context management, and admin panel.
+    Preparation and validation of datasets for ML models. Data annotation in CVAT and development of processing utilities.`,
   }
 };
 
@@ -175,7 +169,7 @@ let currentLang = localStorage.getItem('lang') || 'ru';
 function applyTranslations(lang) {
   const t = translations[lang];
   if (!t) return;
-  
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (t[key]) {
@@ -186,9 +180,9 @@ function applyTranslations(lang) {
       }
     }
   });
-  
+
   const latinRoles = ['Backend Developer', 'Python Engineer', 'Go Enthusiast', 'Security Researcher'];
-  window.typedRoles = latinRoles.map((fallback, i) => t[`hero-role-${i + 1}`] || fallback);
+  window.typedRoles = latinRoles.map((fallback, i) => t[`hero- role - ${i + 1}`] || fallback);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
@@ -212,7 +206,7 @@ function initLangSwitcher() {
       }
     });
   });
-  
+
   applyTranslations(currentLang);
 }
 
