@@ -71,9 +71,11 @@ const translations = {
     'experience-0-date': 'Февраль 2026 - н.в.',
     'experience-0-title': 'Младший специалист',
     'experience-0-org': 'НТЦ Вулкан',
-    'experience-0-desc': `Разработка бэкенд-части сервиса автоматизации коммуникаций (FastAPI, PostgreSQL, Redis, REST API).
-    Реализация системы аутентификации, разграничения прав доступа (RBAC), управления контекстом сессий и создание админ-панели.
-    Подготовка и валидация датасетов для ML-моделей. Разметка данных в CVAT и написание утилит обработки данных.`,
+    'experience-0-desc': `Backend-разработка сервисов автоматизации голосовых коммуникаций и видеоаналитики (FastAPI, PostgreSQL, Redis, Alembic).
+    Проектирование REST API, внедрение refresh-токенов, настройка RBAC, интеграция RAG и управление миграциями БД.
+    Поддержка edge-устройств: health-checks, endpoints для аналитики и генерации отчётов.
+    Подготовка CV-датасетов (Python + OpenCV, CVAT), валидация данных, документирование.`,
+
   },
   en: {
     // Hero
@@ -158,9 +160,10 @@ const translations = {
     'experience-0-date': 'February 2026 - present',
     'experience-0-title': 'Junior specialist',
     'experience-0-org': 'NTC Vulkan',
-    'experience-0-desc': `Backend development for communication automation service (FastAPI, PostgreSQL, Redis, REST API).
-    Implementation of authentication, RBAC permission system, session context management, and admin panel.
-    Preparation and validation of datasets for ML models. Data annotation in CVAT and development of processing utilities.`,
+    'experience-0-desc': `Backend development for voice communication automation & video analytics services (FastAPI, PostgreSQL, Redis, Alembic).
+    REST API design, refresh token implementation, RBAC configuration, RAG integration, and DB migration management.
+    Edge device support: health-checks, analytics & reporting endpoints.
+    CV dataset preparation (Python + OpenCV, CVAT), data validation, documentation.`,
   }
 };
 
