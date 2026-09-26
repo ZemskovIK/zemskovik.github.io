@@ -46,13 +46,13 @@
       <a href="#contact" class="nav-cta">contact_me()</a>
     </div>
 
-    <button class="burger-btn" aria-label="Меню" aria-expanded="false">
+    <button class="burger-btn" aria-label="Меню" aria-controls="mobile-menu" aria-expanded="false">
       <span class="burger-line"></span>
       <span class="burger-line"></span>
       <span class="burger-line"></span>
     </button>
 
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu">
       <ul>
         <li><a href="#about"><span>01.</span><span data-i18n="nav-about">about</span></a></li>
         <li><a href="#skills"><span>02.</span><span data-i18n="nav-skills">skills</span></a></li>
@@ -122,12 +122,15 @@
         <div class="t-comment">&nbsp;</div>
         <div><span class="t-out">{</span></div>
         <div>&nbsp;&nbsp;<span class="t-key" data-i18n="terminal-name-key">"name"</span><span class="t-out">:</span>
-          <span class="t-str" data-i18n="terminal-name-val">"Igor Zemskov"</span><span class="t-out">,</span></div>
+          <span class="t-str" data-i18n="terminal-name-val">"Igor Zemskov"</span><span class="t-out">,</span>
+        </div>
         <div>&nbsp;&nbsp;<span class="t-key" data-i18n="terminal-role-key">"role"</span><span class="t-out">:</span>
-          <span class="t-str" data-i18n="terminal-role-val">"Backend Developer"</span><span class="t-out">,</span></div>
+          <span class="t-str" data-i18n="terminal-role-val">"Backend Developer"</span><span class="t-out">,</span>
+        </div>
         <div>&nbsp;&nbsp;<span class="t-key" data-i18n="terminal-focus-key">"focus"</span><span class="t-out">:</span>
           <span class="t-str" data-i18n="terminal-focus-val">"scalable systems &amp; security"</span><span
-            class="t-out">,</span></div>
+            class="t-out">,</span>
+        </div>
         <div>&nbsp;&nbsp;<span class="t-key" data-i18n="terminal-location-key">"location"</span><span
             class="t-out">:</span> <span class="t-str" data-i18n="terminal-location-val">"Russia 🇷🇺"</span><span
             class="t-out">,</span></div>
@@ -259,14 +262,14 @@
 
   <section id="projects">
     <div class="section-label" data-i18n="section-projects">03. projects</div>
-  
+
     <div class="project-filters">
       <button class="badge" data-filter="all" data-i18n="filter-all">Все</button>
       <button class="badge blue" data-filter="backend">Backend</button>
       <button class="badge blue" data-filter="frontend">Frontend</button>
       <button class="badge blue" data-filter="fullstack">Fullstack</button>
     </div>
-  
+
     <div class="projects-grid" id="projects-container">
     </div>
   </section>

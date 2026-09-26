@@ -185,7 +185,7 @@ function applyTranslations(lang) {
   });
 
   const latinRoles = ['Backend Developer', 'Python Engineer', 'Go Enthusiast', 'Security Researcher'];
-  window.typedRoles = latinRoles.map((fallback, i) => t[`hero- role - ${i + 1}`] || fallback);
+  window.typedRoles = latinRoles.map((fallback, i) => t[`hero-role-${i + 1}`] || fallback);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
