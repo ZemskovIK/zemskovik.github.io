@@ -69,12 +69,9 @@ const translations = {
     'nav-contact': 'контакты',
 
     'experience-0-date': 'Февраль 2026 - н.в.',
-    'experience-0-title': 'Младший специалист',
+    'experience-0-title': 'Backend-разработчик',
     'experience-0-org': 'НТЦ Вулкан',
-    'experience-0-desc': `Backend-разработка сервисов автоматизации голосовых коммуникаций и видеоаналитики (FastAPI, PostgreSQL, Redis, Alembic).
-    Проектирование REST API, внедрение refresh-токенов, настройка RBAC, интеграция RAG и управление миграциями БД.
-    Поддержка edge-устройств: health-checks, endpoints для аналитики и генерации отчётов.
-    Подготовка CV-датасетов (Python + OpenCV, CVAT), валидация данных, документирование.`,
+    'experience-0-desc': 'Backend-разработка сервисов автоматизации голосовых коммуникаций и видеоаналитики.',
 
   },
   en: {
@@ -158,12 +155,9 @@ const translations = {
     'nav-cta': 'contact_me()',
 
     'experience-0-date': 'February 2026 - present',
-    'experience-0-title': 'Junior specialist',
+    'experience-0-title': 'Backend Developer',
     'experience-0-org': 'NTC Vulkan',
-    'experience-0-desc': `Backend development for voice communication automation & video analytics services (FastAPI, PostgreSQL, Redis, Alembic).
-    REST API design, refresh token implementation, RBAC configuration, RAG integration, and DB migration management.
-    Edge device support: health-checks, analytics & reporting endpoints.
-    CV dataset preparation (Python + OpenCV, CVAT), data validation, documentation.`,
+    'experience-0-desc': 'Backend development for voice communication automation and video analytics services.',
   }
 };
 
