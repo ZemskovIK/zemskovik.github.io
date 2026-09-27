@@ -167,6 +167,10 @@ function applyTranslations(lang) {
   const t = translations[lang];
   if (!t) return;
 
+  document.documentElement.lang = lang;
+  const burger = document.querySelector('.burger-btn');
+  if (burger) burger.setAttribute('aria-label', lang === 'ru' ? 'Меню' : 'Menu');
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (t[key]) {

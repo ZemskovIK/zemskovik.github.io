@@ -115,15 +115,22 @@ function initProjectFilters() {
   const buttons = document.querySelectorAll('.project-filters [data-filter]');
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
+      buttons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       currentFilter = btn.dataset.filter;
       renderProjects(PROJECTS, currentFilter);
       if (typeof initScrollAnimations === 'function') requestAnimationFrame(initScrollAnimations);
     });
   });
   const allBtn = document.querySelector('.project-filters [data-filter="all"]');
-  if (allBtn) allBtn.classList.add('active');
+  if (allBtn) {
+    allBtn.classList.add('active');
+    allBtn.setAttribute('aria-pressed', 'true');
+  }
 }
 
 function initProjects() {
