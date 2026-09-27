@@ -25,12 +25,12 @@ const PROJECTS = [
     id: 3,
     title: { ru: 'Портфолио дизайнера интерьера', en: 'Interior Designer Portfolio' },
     description: {
-      ru: 'Многостраничный сайт с каталогом проектов. Система отзывов через Supabase, формы обратной связи через EmailJS.',
-      en: 'Multi-page website with a project catalog. Review system via Supabase, contact forms via EmailJS.'
+      ru: 'Многостраничный сайт-портфолио с каталогом проектов, формами обратной связи и системой отзывов.',
+      en: 'Multi-page portfolio website with a project catalog, contact forms, and a review system.',
     },
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Supabase', 'EmailJS'],
+    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'HTML5', 'CSS3', 'JavaScript'],
     links: [{ name: 'Demo', url: 'https://romanzemskov.ru', type: 'external' }],
-    category: 'frontend'
+    category: 'fullstack'
   },
   {
     id: 4,
