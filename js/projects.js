@@ -45,10 +45,10 @@ const PROJECTS = [
   },
   {
     id: 5,
-    title: { ru: 'Сайт медицинской IT-компании', en: 'Medical IT Company Website' },
+    title: { ru: 'Корпоративный сайт ООО "ИМТ"', en: 'Corporate Website for IMT' },
     description: {
-      ru: 'Корпоративный сайт-визитка с современным минималистичным дизайном и адаптивной версткой.',
-      en: 'Corporate landing page with a modern minimalist design and responsive layout.'
+      ru: 'Корпоративный сайт для компании, разрабатывающей и внедряющей комплексные IT-решения для медицинских организаций.',
+      en: 'Corporate website for a company developing and implementing integrated IT solutions for healthcare organizations.'
     },
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Vite'],
     links: [{ name: 'Demo', url: 'https://infomed.tech', type: 'external' }],
